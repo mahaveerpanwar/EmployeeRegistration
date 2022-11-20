@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Employee Data</title>
+
+<!-- ***********************  CSS Part Starts ***************************** -->
+<style type="text/css">
+h2 {
+	font-size: 30px;
+	color: black;
+	text-transform: uppercase;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.dataview {
+	margin: 15px;
+	background-color: white;
+	color: black;
+	border-radius: 7px;
+	padding: 10px 20px;
+	display: inline-block;
+}
+
+a {
+	text-decoration: none;
+}
+
+.dataview:hover {
+	background-color: orange;
+	transition: 0.5s linear;
+}
+
+.viewbtn:hover {
+	color: white;
+}
+
+table {
+	width: 100%;
+}
+
+.tbl-header {
+	background-color: lightgrey;
+}
+
+th {
+	padding: 20px 15px;
+	text-align: left;
+	font-weight: bold;
+	font-size: 15px;
+	color: black;
+	text-transform: uppercase;
+}
+
+td {
+	padding: 15px;
+	text-align: left;
+	vertical-align: middle;
+	font-weight: 300;
+	font-size: 13px;
+	color: #fff;
+	border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+@import
+	url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+body {
+	background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+	background: linear-gradient(to right, #25c481, #25b7c4);
+	font-family: 'Roboto', sans-serif;
+}
+</style>
+<!-- ***********************  CSS Part Ends ***************************** -->
+
+</head>
+
+<body>
+	<h2>Employee Data</h2>
+	<div class="dataview">
+		<a th:href="@{/app}" class="viewbtn">View Create Page</a><br>
+
+
+	</div>
+	<table border='2'>
+
+		<thead class="tbl-header">
+
+			<tr>
+				<th>ID</th>
+				<th>First Name</th>
+				<th>Middle Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Mobile</th>
+				<th>City</th>
+				<th>Gender</th>
+				<th>Marital Status</th>
+				<th colspan='2'>Delete</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr th:each="list:${findAll}">
+				<td th:text="${list.id}"></td>
+				<td th:text="${list.firstName}">
+				<td th:text="${list.middleName}">
+				<td th:text="${list.lastName}">
+				<td th:text="${list.email}">
+				<td th:text="${list.mobile}">
+				<td th:text="${list.city}">
+				<td th:text="${list.gender}">
+				<td th:text="${list.maritalStatus}"></td>
+				<th><a th:href="@{/delete/{id}(id=${list.id})}" class="btn btn-primary">Delete</a></th>
+			</tr>
+		</tbody>
+
+
+
+	</table>
+
+</body>
+</html>

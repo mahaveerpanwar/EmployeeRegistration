@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Save Employee Data</title>
+
+<style type="text/css">
+body {
+	font-family: "Averia Sans Libre", sans-serif;
+	overflow: hidden;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	background: #ece9e6;
+	background: -webkit-linear-gradient(to right, #ffffff, #ece9e6);
+	background: linear-gradient(to right, #ffffff, #ece9e6);
+}
+
+h2 {
+	margin: 35px 0;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 32px;
+}
+
+a{
+text-decoration:none;
+background-color:orange;
+padding:12px;
+border-radius:7px;
+color:black;
+}
+a:hover{
+background-color:white;
+color:black;
+}
+
+.formfeilds {
+	display: inline-block;
+}
+
+.inputsboxes {
+	margin-top: 5px;
+	margin-left:3%;
+	margin-bottom:0px;
+}
+
+
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	color: #eeeeee;
+	background-color:grey;
+	max-width: 550px;
+	border-radius: 8px;
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+input {
+	border-radius: 3px;
+	padding:9px;
+}
+.Status{
+margin:8px;
+}
+
+.gender{
+margin-bottom:3px;
+
+}
+
+.savebtn {
+	font-size:14px;
+	background-color:#4CAF50;
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+	margin-top:15px;
+	margin-left: 70px;
+	width:50%;
+	padding-right:12px;
+}
+
+.savebtn:hover{
+	background-color:#fff;
+	color:Green;
+	font-size:bold;
+}
+</style>
+
+</head>
+
+<body>
+	<h2>Enter All the Data in the Given Fields</h2>
+	<a th:href="@{viewEmpData}">View Employee Data</a>
+	<br>
+	<div class="formfeilds">
+
+		<form th:action="@{/saveEmpData}" th:object="${employee}"
+			method="post">
+			<div class="wrapper">
+				<div class="inputsboxes">
+
+					<pre>
+  <input type="text" name="firstName" placeholder="FirstName">
+  
+  <input type="text" name="middleName" placeholder="Middle Name">
+  
+  <input type="text" name="lastName" placeholder="Last Name">
+
+  <input type="text" name="email" placeholder="Email">
+  
+  <input type="text" name="mobile" placeholder="Mobile">
+  
+  <input type="text" name="city" placeholder="City">
+
+				</div>
+	<div class="gender">
+
+Gender : <input type="radio" name="gender" value="male">Male
+         <input type="radio" name="gender" value="fmale">Female
+
+	</div>
+	<div class="Status" >
+Marital Status : <input type="radio" name="maritalStatus" value="married">Married <input type="radio" name="maritalStatus" value="unmarried">Unmarried
+	</div>
+
+
+
+
+			</div>
+			<input type="submit" value="Save" class="savebtn">
+			</pre>
+		</form>
+	</div>
+
+</body>
+</html>
